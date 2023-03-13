@@ -1,0 +1,18 @@
+type: pipeline
+
+jobs:
+   transformers:
+     inputs:
+       epochs: 3
+       # model id from HuggingFace
+       base_model_name: "bert-base-uncased"
+     outputs:
+       trained_model:
+         type: custom_model
+     type: command
+     # Docker image with transformers installed 
+     environment: azureml:transformers-training@latest
+     code: ./
+     # The training script has the emotions dataset with label-id mapping hard coded, todo - refactor as a parameter 
+     command: python ./finetune-evaluate.py --model_output ${{ outputs.trained_model }} --epochs ${{ inputs.epochs }} --base_model_name ${{ inputs.base_model_name }}
+     compute: azureml:sample-finetune-cluster

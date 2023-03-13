@@ -1,0 +1,20 @@
+name: HF
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8
+  - pip
+  - pip:
+    - huggingface-hub
+    - tensorflow
+    - tensorflow-estimator
+    - tokenizers
+    - evaluate
+    - datasets
+    - torch
+    - transformers
+    - mlflow
+    - azureml-mlflow
+    - pytorch-lightning
+    - sklearn
+    - git-lfs

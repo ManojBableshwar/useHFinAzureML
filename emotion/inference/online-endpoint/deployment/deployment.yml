@@ -1,0 +1,10 @@
+$schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
+name: bert-emotion-dep1
+endpoint_name: bert-emotion-ep
+model: azureml:bert-emotion:1
+code_configuration:
+  code: ./
+  scoring_script: score.py
+environment: azureml:transformers-inference@latest
+instance_type: Standard_F4s_v2
+instance_count: 1

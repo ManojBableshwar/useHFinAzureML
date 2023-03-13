@@ -1,0 +1,6 @@
+$schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
+name: transformers-inference
+#version: 
+description: Environment to run HF transformers SDK
+build:
+  path: docker
